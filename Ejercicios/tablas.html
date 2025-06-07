@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    .fondo {
+        width: 100%;
+        height: 300px;
+        background-image: url('daisy-9549631_1280.jpg');
+        background-size: cover; /* cubre todo el contenedor */
+        background-position: center; /* centra la imagen */
+        background-repeat: no-repeat; /* evita que la imagen se repita */
+    }
+        /* BARRA superior Fija*/
+  .navbar {
+    display: flex;
+    align-items: center; /* alinea los elementos al centro */
+    position: fixed;       /* fija en la pantalla */
+    top: 0;          /* distancia desde la parte superior */
+    left: 0;
+    width: 100%;          /* ancho fijo */
+    margin-left: 0px;
+    height: 20px;         /* altura completa de la ventana */
+    background-color: hsl(0, 0%, 100%);
+    color: rgb(53, 49, 49);
+    padding: 20px;
+    gap: 20p1x;
+  }
+    </style>
+</head>
+<body>
+<div class="fondo"></div>
+
+<div class="navbar">
+  <p style="margin: 0;">menu superior </p>
+   <a href="#seccion1">Sección 1</a>
+    <a href="#seccion2">Sección 2</a>
+    <a href="#seccion3">Sección 3</a>
+    <a href="#seccion4">Sección 4</a>
+</div>
+
+
+    <h2>Tablas</h2>
+    <table>
+        <thead>
+        <tr> <!-- fila de encabezado -->
+            <th>Nombre</th> <!-- columndas  -->
+            <th>Edad</th>
+            <th>Ciudad</th>
+        </tr>
+        </thead>
+       
+        <tr>
+            <td>Juan</td> <!-- fila de datos -->
+            <td>25</td>
+            <td>Madrid</td>
+        </tr>
+        <tr>
+            <td>Ana</td>
+            <td>30</td>
+            <td>Barcelona</td>
+        </tr>
+        <tr>
+            <td><ul><li>francisco</li> <li>alejandro</li></ul></td>
+            <td><ol><li>45</li> <li> 30</li></ol></td>
+        </tr>
+
+    </table>
+</body>
+<style>
+thead{
+    background-color: #d04d4d; /* color de fondo para el encabezado */
+}
+td{
+    background-color: #7dd061; /* color de fondo para las celdas */
+}
+td{
+    border: 10px solid black ; /* margen para las filas */
+}
+th{
+    border: 10px solid black ; /* margen para las filas */
+}
+</style>
+</html>

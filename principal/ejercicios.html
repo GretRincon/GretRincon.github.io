@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página con Barra Superior</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url('girl_rain.jpg');
+      background-size: cover;
+      background-position: fixed;
+      background-repeat: no-repeat;
+      font-family: 'Cinzel', sans-serif;
+    }
+
+    .slider-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 100%;
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slide{
+        width: 100vw;
+        height: 100vh;
+        background-size: cover /* cubre todo el contenedor */;
+        background-position: center /* centra la imagen */;
+        flex-shrink: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    header {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(30, 30, 30, 0.7); /* gris oscuro con transparencia */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+        width: 100%;
+      padding: 0 20px;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-family: 'Cinzel', sans-serif;
+      transition: color 0.2s;
+      margin-left: 40px;
+    }
+
+    .search-container {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-container input[type="text"] {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .icon-button {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.2s;
+    }
+
+    .icon-button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .widget-container {
+      
+      margin-top: 70px; /* Espacio para el header */
+      
+      padding: 20px;
+      width: 100%;
+    }
+
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(20, 200px);
+        grid-template-rows: minmax(150px, auto);
+        gap: 10px;
+        min-width: max-content;
+    }
+
+    .widget {
+      background-color: rgba(255, 255, 255, 0.548);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .widget-scroll-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    
+    <!-- Logo -->
+    <img src="PROTECSA_logo.png" alt="Logo" class="logo">
+
+    <nav class="nav-links">
+        <a href="tablas.html">Tablas</a>
+        <a href="listas.html">Listas</a>
+        <a href="iconos.html">Iconos</a>
+
+    </nav>
+      
+    <!-- Google Fonts: Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Búsqueda + botones -->
+    <div class="search-container">
+      <input type="text" placeholder="Buscar...">
+      <div class="icon-button">
+    <span class="material-symbols-outlined">notifications</span>
+    </div>
+
+      <div class="icon-button">
+        <span class="material-symbols-outlined">music_note</span>
+      </div>
+    </div>
+    
+  </header>
+   <!-- Slider con 3 imágenes -->
+    <div class="slider-container" id="slider">
+        <div class="slide" style="background-image: url('girl_rain.jpg');"></div>
+        <div class="slide" style="background-image: url('rain.jpg');"></div>
+        <div class="slide" style="background-image: url('windshield.jpg');"></div>
+    </div>
+
+       <!-- Widgets Gride -->
+    <div class="widget-container">
+    <div class="widget-scroll-container">"    
+        <div class="parent">
+            <div class="widget" style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30132.12004545816!2d-98.954335923704!3d19.25995754947995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1c0955e7cf6f%3A0x5ffb033a0b8ad24c!2sVolc%C3%A1n%20Xico!5e0!3m2!1ses!2smx!4v1749283238767!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+            <div id="ww_4776acb13dc28" v='1.3' loc='auto' a='{"t":"horizontal","lang":"es","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Más previsiones: <a href="https://oneweather.org/es/seville/" id="ww_4776acb13dc28_u" target="_blank">Tiempo en Sevilla por horas</a></div><script async src="https://app3.weatherwidget.org/js/?id=ww_4776acb13dc28"></script>
+    
+            <!-- Segunda seccion Gride -->
+    
+            <iframe src="https://free.timeanddate.com/countdown/i9xe6ek2/n155/cf100/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tcfff/fs100/szw320/szh135/tatTiempo%20restante%202025/tac000/tptTime%20since%20Event%20started%20in/tpc000/mac000/mpc000/iso2025-12-31T00:00:00" allowtransparency="true" frameborder="0" width="320" height="135"></iframe>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <div class="widget"style="opacity: 0.1;"></div>
+            <iframe src="https://free.timeanddate.com/clock/i9xe6bgi/n155/szw110/szh110/hoc222/hbw6/cf100/hgr0/hcw2/hcd88/fan2/fas20/fdi70/mqc000/mqs3/mql13/mqw4/mqd94/mhc000/mhs3/mhl13/mhw4/mhd94/mmc000/mml5/mmw1/mmd94/hwm2/hhs2/hhb18/hms2/hml80/hmb18/hmr7/hscf09/hss1/hsl90/hsr5" frameborder="0" width="110" height="110"></iframe>
+    </div>
+  </div>
+</div>
+
+   
+  <script>
+    let index = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = 3; // Cambia si usas más imágenes
+
+    setInterval(() => {
+      index = (index + 1) % totalSlides;
+      slider.style.transform = `translateX(-${index * 100}vw)`;
+    }, 5000); // cada 5 segundos
+  </script>
+</body>
+</html>

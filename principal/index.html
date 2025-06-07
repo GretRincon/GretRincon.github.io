@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página tipo Minerva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Puritan&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      width: 350px;
+      margin-bottom: 30px;
+    }
+
+    .button {
+  margin: 10px;
+  padding: 20px 30px;
+  background-color: transparent; /* Fondo transparente */
+  color: #f5f2e9; /* Letra dorada */
+  border: 2px solid #d4af37; /* Borde dorado */
+  border-radius: 3px;
+  font-family: 'Cinzel', sans-serif; /* Fuente Cinzel */
+  font-size: 22px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+
+
+    .button:hover {
+      background-color: #c49c1c;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video de fondo -->
+  <video autoplay muted loop class="video-bg">
+    <source src="lofi.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
+
+  <!-- Audio oculto -->
+  <audio id="bg-music" loop>
+    <source src="light-instrumental-melody-313329.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <!-- Contenido -->
+  <div class="overlay">
+    <!-- Logo -->
+    <img src="PROTECSA_logoG.png" alt="Logo" class="logo" />
+
+    <!-- Botones principales -->
+    <a href="pagina1.html" class="button">Conócenos</a>
+    <a href="ejercicios.html" class="button">Ejercicios básicos</a>
+
+    <!-- Botón de música -->
+    <button onclick="toggleMusic()" id="music-button" class="button">🎵 Reproducir música</button>
+  </div>
+
+  <script>
+    const music = document.getElementById("bg-music");
+    const button = document.getElementById("music-button");
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        button.textContent = "🔇 Pausar música";
+      } else {
+        music.pause();
+        button.textContent = "🎵 Reproducir música";
+      }
+    }
+  </script>
+
+</body>
+</html>

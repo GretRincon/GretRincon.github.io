@@ -1,0 +1,511 @@
+/* Importa fuentes de Google Fonts (opcional, pero mejora la estética) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Estilos Generales y Reset --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa; /* Un gris claro para el fondo */
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces internos */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #343a40;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: #007bff; /* Color de enlace por defecto */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Color de enlace al pasar el ratón */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Espaciado a los lados */
+}
+
+.section {
+    padding: 80px 0; /* Espaciado superior e inferior para las secciones */
+    text-align: center;
+}
+
+.section.bg-light {
+    background-color: #e9ecef; /* Un fondo ligeramente más oscuro para algunas secciones */
+}
+
+/* --- Cabecera / Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background-hero.jpg') no-repeat center center/cover; /* Reemplaza 'background-hero.jpg' con tu imagen */
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Para contener la imagen de perfil flotante si aplica */
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero-section .tagline {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #f8f9fa;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 30px auto;
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: #007bff; /* O un color de acento que prefieras */
+}
+
+/* --- Sobre Mí --- */
+#about p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+
+/* --- Habilidades --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    text-align: left;
+}
+
+.skill-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.progress-bar {
+    background-color: #dee2e6;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #007bff; /* Color de la barra de progreso */
+    border-radius: 5px;
+    width: 0; /* Se animará con JavaScript o CSS */
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Animación para las barras de progreso */
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: var(--skill-width); } /* Usaremos una variable CSS con JS */
+}
+
+/* --- Experiencia y Educación (Timeline) --- */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: #dee2e6;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    z-index: 1;
+}
+
+.timeline-item {
+    padding: 20px 0;
+    position: relative;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 40px;
+}
+
+.timeline-dot {
+    width: 15px;
+    height: 15px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    top: 28px;
+    z-index: 2;
+    left: calc(50% - 7.5px); /* Centra el punto en la línea */
+    border: 2px solid #fff;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    left: auto;
+    right: -7.5px; /* Ajusta la posición del punto para los elementos de la izquierda */
+}
+
+.timeline-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: #007bff;
+}
+
+.timeline-content h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+.timeline-content .date {
+    display: block;
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-content ul li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.timeline-content ul li::before {
+    content: '•'; /* O un icono de Font Awesome si lo prefieres */
+    color: #007bff;
+    position: absolute;
+    left: 0;
+}
+
+/* Educación usa la misma estructura que Experiencia para el diseño de la línea de tiempo */
+.education-list .education-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.education-list .education-item:hover {
+    transform: translateY(-5px);
+}
+
+.education-list .education-item h3 {
+    margin-top: 0;
+    font-size: 1.4em;
+    color: #007bff;
+}
+
+.education-list .education-item h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #6c757d;
+}
+
+.education-list .education-item .date {
+    display: block;
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* --- Servicios --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+.service-item {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-item .icon {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* --- Portafolio --- */
+.portfolio-filters {
+    margin-bottom: 40px;
+}
+
+.portfolio-filters .filter-btn {
+    background-color: #dee2e6;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-filters .filter-btn:hover,
+.portfolio-filters .filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-item h3 {
+    margin: 15px 15px 5px 15px;
+    font-size: 1.3em;
+}
+
+.portfolio-item p {
+    font-size: 0.95em;
+    color: #6c757d;
+    padding: 0 15px 15px 15px;
+}
+
+/* --- Contacto --- */
+.contact-info {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Pie de Página --- */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section .tagline {
+        font-size: 1.2em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .timeline::before {
+        left: 15px; /* Mueve la línea al lado izquierdo */
+    }
+
+    .timeline-item {
+        width: 100%; /* Ocupa todo el ancho */
+        padding-left: 40px; /* Espaciado para el contenido */
+        padding-right: 0;
+        left: 0; /* Reinicia la posición */
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-right: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+        padding-left: 40px;
+        left: 0;
+    }
+
+    .timeline-dot {
+        left: 8px; /* Ajusta el punto a la nueva línea */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+        right: auto;
+        left: 8px;
+    }
+
+    .skills-grid,
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    /* Estilos para el botón de descarga */
+.btn-download {
+    display: inline-block; /* Para que puedas aplicar padding, margen, etc. */
+    background-color: #28a745; /* Un color verde amigable, similar a "éxito" */
+    color: #fff; /* Texto blanco */
+    padding: 12px 25px; /* Relleno interno */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    text-decoration: none; /* Quita el subrayado por defecto del enlace */
+    font-size: 1.1em; /* Tamaño de fuente ligeramente más grande */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave al pasar el ratón */
+    margin-top: 30px; /* Margen superior para separarlo del párrafo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+.btn-download:hover {
+    background-color: #218838; /* Color un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.btn-download i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+}
